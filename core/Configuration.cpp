@@ -4,6 +4,8 @@
 #include "Configuration.hpp"
 #include "Matching.hpp"
 
+ClassImp(AnalysisTree::Configuration);
+
 namespace AnalysisTree {
 
 BranchConfig& Configuration::GetBranchConfig(const std::string& name) {
