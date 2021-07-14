@@ -11,7 +11,6 @@
 #include "EventHeader.hpp"
 
 #include "Chain.hpp"
-#include "VariantMagic.hpp"
 #include "Cuts.hpp"
 
 class TChain;
@@ -46,13 +45,7 @@ class Task {
     return event_cuts_ ? event_cuts_->Apply(event_header) : true;
   }
 
-  ANALYSISTREE_ATTR_NODISCARD bool IsGoodEvent(const Chain& t) const {
-    if (!event_cuts_) return true;
-    auto br_name = event_cuts_->GetBranches().begin();
-    // Here EventHeader expected
-    //TODO throw exeption otherwise
-    return ANALYSISTREE_UTILS_VISIT(apply_cut(0, event_cuts_), t.GetPointerToBranch(*br_name));
-  }
+  ANALYSISTREE_ATTR_NODISCARD bool IsGoodEvent(const Chain& t) const;
 
   void SetEventCuts(Cuts* cuts) {
     if (cuts->GetBranches().size() != 1) {
