@@ -72,7 +72,7 @@ if(AnalysisTree_BUILD_TESTS)
             Cuts.test.cpp
             Field.test.cpp
             SimpleCut.test.cpp
-#            PlainTreeFiller.test.cpp
+            PlainTreeFiller.test.cpp
             AnalysisTask.test.cpp
             Branch.test.cpp
             )
